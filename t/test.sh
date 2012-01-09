@@ -515,5 +515,3 @@ WVPASS bup repack -n
 WVPASSEQ $(ls "$BUP_DIR/objects/pack" | grep "pack$" | wc -l) "3"
 WVPASSEQ $(bup ls repack/ | wc -l) "6"
 
-rm -rf $D
-
