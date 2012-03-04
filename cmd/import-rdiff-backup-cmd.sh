@@ -9,6 +9,13 @@ usage() {
     exit -1
 }
 
+control_c() {
+    echo "bup import-rdiff-backup: signal 2 received" 1>&2
+    exit $?
+}
+
+trap control_c SIGINT
+
 DRY_RUN=
 while [ "$1" = "-n" -o "$1" = "--dry-run" ]; do
     DRY_RUN=echo
